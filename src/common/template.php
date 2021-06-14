@@ -13,10 +13,18 @@
 <body>
 
 <?php 
- include "header.php"
+ include "header.php";
+
+//  if(!empty($_SESSION["connecté"])){
+//      $connect = $_SESSION["connecté"];
+//      echo $_SESSION["login"];
+//       echo      $_SESSION["email"];
+//       echo       $_SESSION["roleId"];
+//     echo 'connecte, valeur de la variable ='.$connect;
+//  } else {echo "pas de session connecté";}
  
  ?>
-    
+
 </body>
 </html>
 

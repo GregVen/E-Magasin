@@ -5,9 +5,17 @@
     </div>
     <div class="header2">
         <div class="headerdiv">
-            <a href="../../src/common/register.php"><i class="fas fa-door-open"></i> se connecter</a>
-            <a href="#"><i class="fas fa-plus-circle"></i> s'inscrire</a>
-            <a href="#"><i class="fas fa-shopping-cart"></i> panier</a>
+
+        <?php if (empty($_SESSION["connecté"])){ ?>
+            <a href="../../src/pages/register.php"><i class="fas fa-user-plus"></i> S'inscrire</a>
+            <a href="../../src/pages/login.php"><i class="fas fa-user-lock"></i> Se connecter</a>
+        <?php 
+            } else { ?>
+            <a href="../../src/pages/donneesUser.php"><i class="fas fa-user"></i> Bonjour, <?php echo $_SESSION["login"];?></a>
+            <a href="../../src/common/logoff.php"><i class="fas fa-user-slash"></i> Se déconnecter</a>
+        <?php 
+            } ?>
+            <a href="#"><i class="fas fa-shopping-cart"></i>Panier</a>
         </div>
     </div>
 </header>
