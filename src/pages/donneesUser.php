@@ -1,6 +1,8 @@
 <?php
+$style="../../src/css/style.css";
 session_start();
  include "../../src/common/template.php";
+
 
 
     echo '<p> login:'.$_SESSION["login"].'</p>';

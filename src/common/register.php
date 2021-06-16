@@ -1,5 +1,6 @@
 <?php
 session_start();
+$style="../../src/css/style.css";
 
 require "../../src/common/dbFonction.php";
 

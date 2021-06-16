@@ -1,5 +1,6 @@
  <?php 
 session_start();
+$style="../../src/css/style.css";
  include "../../src/common/template.php";
 
  ?>
@@ -31,6 +32,8 @@ session_start();
 
 <?php
 
+include "../common/footer.php";
+
     if(isset($_GET["error"]) && $_GET["error"] == true){
         
         // if($_GET["message"] == "mots de passe différents"){
@@ -41,6 +44,8 @@ session_start();
 </div>
 
 <?php 
+
+
     
         // } 
 } elseif (isset($_GET["error"]) && $_GET["error"] == false){

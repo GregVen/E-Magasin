@@ -1,4 +1,5 @@
 <?php
+$style="../../src/css/style.css";
 session_start();
  include "../../src/common/template.php";
 
@@ -22,6 +23,7 @@ session_start();
 </form>
 
 <?php
+include "../common/footer.php";
 
     if(isset($_GET["error"]) && $_GET["error"] == true){
         
