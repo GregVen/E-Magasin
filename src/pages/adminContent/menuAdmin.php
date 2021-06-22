@@ -7,6 +7,9 @@
         <div>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
+                    <a class="nav-link" href="admin.php?page=listeProduits">Liste des produits </a>
+                </li>
+                <li class="nav-item active">
                     <a class="nav-link" href="admin.php?page=ajouterProduit">Ajouter un Produit </a>
                 </li>
                 <li class="nav-item ">
