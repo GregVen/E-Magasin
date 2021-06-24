@@ -18,6 +18,13 @@ session_start();
         </div>
         <div class="center">
             <button type="submit" title="Valider">Valider</button>
+            
+        </div>
+        <div class="center">
+            <p>login admin: admin / admin</p>
+        </div>
+        <div class="center">
+            <p>login user: user / user</p>
         </div>
     </div>
 </form>

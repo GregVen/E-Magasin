@@ -17,7 +17,9 @@ session_start();
         <div class="col-1"></div>
         <div class="col-9">
             <?php
+            
             include "./src/common/derniersArticles.php";
+            
             ?>
         </div>
     </div>

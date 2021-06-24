@@ -1,95 +1,36 @@
+<?php
+
+try{
+        
+    $result = lastProducts();//fonction dans dbproduitFonctions
+
+} catch (PDOException $e){
+    echo $e->getMessage();
+    echo $e->getLine();
+    exit();
+}
+
+?>
+
+
 <div class="container">
     <div class="row wrap justify-content-center">   
+
+    <?php foreach ($result as $value): ?>
         <div class="col-4 mb-2">
+        <a href ="../../src/pages/article.php?id=<?php echo $value['productIdINT'];?>">
             <div class="card" style="width: 18rem;">
-                <img src="./src/img/PC/PC1.jpg" class="card-img-top" alt="...">
+                <img src="<?php echo $value['imgUrl'];?>" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Ajouter au panier</a>
+                    <h5 class="card-title"><?php echo $value['productName'];?></h5>
+                    <p class="card-text"><?php echo $value['description'];?></p>
                 </div>
             </div>
+        </a>
         </div>
-        <div class="col-4 mb-2">
-            <div class="card" style="width: 18rem;">
-                <img src="./src/img/PC/PC1.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Ajouter au panier</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-4 mb-2">
-            <div class="card" style="width: 18rem;">
-                <img src="./src/img/PC/PC1.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Ajouter au panier</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-4 mb-2">
-            <div class="card" style="width: 18rem;">
-                <img src="./src/img/PC/PC1.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Ajouter au panier</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-4 mb-2">
-            <div class="card" style="width: 18rem;">
-                <img src="./src/img/PC/PC1.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Ajouter au panier</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-4 mb-2">
-            <div class="card" style="width: 18rem;">
-                <img src="./src/img/PC/PC1.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Ajouter au panier</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-4 mb-2">
-            <div class="card" style="width: 18rem;">
-                <img src="./src/img/PC/PC1.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Ajouter au panier</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-4 mb-2">
-            <div class="card" style="width: 18rem;">
-                <img src="./src/img/PC/PC1.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Ajouter au panier</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-4 mb-2">
-            <div class="card" style="width: 18rem;">
-                <img src="./src/img/PC/PC1.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Ajouter au panier</a>
-                </div>
-            </div>
-        </div>        
+    <?php  endforeach ?>
+
+
     </div>
 </div>
 
