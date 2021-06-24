@@ -1,7 +1,8 @@
 <?php 
 // session_start();
 
-require "../../src/common/dbAccess.php";
+require "../../src/fonctions/db_access.php";
+require "../../src/fonctions/dbInsertUser.php";
 
 function createuser($login, $email, $password, $password2, $ban, $roleId){
     try {
@@ -75,19 +76,7 @@ function getUserByLogin($login,$password ){
                 header("location: ../../src/pages/login.php?error=true&message=mauvais login et/ou mot de passe");
                 exit;
             } else {
-            // else {
-            //     $_SESSION['postmessage']="mdp correspondant et bon";
-            // }
 
-            // $_SESSION['motdepasse2']=$motdepasse;
-
-            // $_SESSION['motdepasse_recupere']=$motdepasse_recupere;
-            // $_SESSION['ban_recupere']=$ban_recupere;
-
-            // $_SESSION['login']=$login = $result['login'];
-            // $_SESSION['password']=$password = $result['password'];
-
-            // header("location: ../../src/pages/register.php?error=true&message=login et/ou email deja existant");
             $recupDonnesUser=recupDonnesUser($login);
 
             $_SESSION["login"] = $recupDonnesUser['login'];

@@ -1,11 +1,12 @@
 <?php 
+require "../fonctions/db_access.php";
+require "../fonctions/dbCategorieFonctions.php";
 
-require "../common/dbCategorieFonctions.php";
 
 ?>
 
 
-<form action="./adminContent/modifProduit/insertProduit.php" method="post" enctype="multipart/form-data">
+<form action="../fonctions/insertProduit.php" method="post" enctype="multipart/form-data">
     <div class=" container text-center mt-3">
         <div class="row">
             <div class="col">

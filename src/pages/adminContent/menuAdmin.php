@@ -16,7 +16,7 @@
                     <a class="nav-link" href="admin.php?page=categorieProduit">Catégories de Produit</a>
                 </li>
             </ul>
-        </div>
+        </div> 
     </div>
 </div>
 

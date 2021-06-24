@@ -1,9 +1,9 @@
-<?php
-session_start();
-require "../../../fonctions/mesFonctions.php";
-require "../../../common/dbProduitsFonctions.php";
-$idproduit=$_SESSION["productID"];
 
+<?php
+require "./db_access.php";
+ require "./mesFonctions.php";
+//  require "../../../common/dbProduitsFonctions.php";
+require "./dbProduitsFonctions.php";
 
  if(isset($_POST["description"]) && isset($_POST["productName"]) && isset($_POST["prix"]) && isset($_POST["tailleMemoire"]) &&
     isset($_POST["processeur"]) && isset($_POST["processeurFab"]) && isset($_POST["resolutionEcran"]) && isset($_POST["tailleEcran"]) &&
@@ -16,7 +16,7 @@ $idproduit=$_SESSION["productID"];
         'tailleMemoire'  => FILTER_SANITIZE_NUMBER_FLOAT,
         'processeur'     => FILTER_SANITIZE_STRING,
         'processeurFab'  => FILTER_SANITIZE_STRING,
-        'resolutionEcran'     => FILTER_SANITIZE_STRING,
+        'resolutionEcran'     => FILTER_SANITIZE_STRING, 
         'tailleEcran'  => FILTER_SANITIZE_STRING,
         'carteGraphique'     => FILTER_SANITIZE_STRING,
         'typeHDD'  => FILTER_SANITIZE_STRING,
@@ -49,12 +49,10 @@ $idproduit=$_SESSION["productID"];
     $OS=htmlspecialchars($_POST["OS"]);
 
     try {
-
-
-        deleteProduits($idproduit);
-        nouveauProduit($destination, $description, $categoryID, $onTop,$productName,$prix, $tailleMemoire, $processeur, $processeurFab, $resolutionEcran, $tailleEcran, $carteGraphique, $typeHdd, $tailleHdd, $poids, $OS);
-        header("location: ../../admin.php?page=listeProduits");
-        exit();
+    
+    nouveauProduit($destination, $description, $categoryID, $onTop,$productName,$prix, $tailleMemoire, $processeur, $processeurFab, $resolutionEcran, $tailleEcran, $carteGraphique, $typeHdd, $tailleHdd, $poids, $OS);
+    header("location: ../pages/admin.php?page=listeProduits");
+    exit();
     
 } catch (Exception $e) {
         die('Erreur: ' . $e->getMessage());

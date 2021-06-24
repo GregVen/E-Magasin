@@ -4,10 +4,12 @@ $idcategorie=$_GET["id"];
 
 echo getcwd();
 try{
-    require "../../../common/dbCategorieFonctions.php";
+    require "../fonctions/db_access.php";
+    require "../fonctions/dbCategorieFonctions.php";
+    
     deleteCategory($idcategorie);
 
-    header("location: ../../admin.php?page=categorieProduit");
+    header("location: ../pages/admin.php?page=categorieProduit");
     exit;
     
 

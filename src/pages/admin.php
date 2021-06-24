@@ -1,11 +1,11 @@
 <?php
-$style="../../src/css/style.css";
+$style="../css/style.css";
 session_start();
 if ($_SESSION["roleId"] != 0){
     header("location: ../");
 }
- include "../../src/common/template.php";
- include "../../src/pages/adminContent/menuAdmin.php";
+ include "../common/template.php";
+ include "./adminContent/menuAdmin.php";
  ?>
  <div class="taillefenetre">
                     
@@ -19,4 +19,4 @@ if ($_SESSION["roleId"] != 0){
 </div>
 
 <?php
-include "../../src/common/footer.php";
+include "../common/footer.php";

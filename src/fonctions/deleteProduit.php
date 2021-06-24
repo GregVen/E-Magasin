@@ -3,10 +3,11 @@ session_start();
 $idproduit=$_GET["id"];
 
 try{
-    require "../../common/dbProduitsFonctions.php";
+    require "./db_access.php";
+    require "./dbProduitsFonctions.php";
     deleteProduits($idproduit);
 
-    header("location: ../admin.php?page=listeProduits");
+    header("location: ../pages/admin.php?page=listeProduits");
     exit;
     
 

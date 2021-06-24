@@ -2,7 +2,7 @@
 session_start();
 $style="../../src/css/style.css";
 
-require "../../src/common/dbFonction.php";
+require "../../src/fonctions/dbFonction.php";
 
 $_SESSION["login"]=$login=$_POST["login"];
 $_SESSION["email"]=$email=$_POST["email"];

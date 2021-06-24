@@ -1,21 +1,21 @@
 <?php
-function bdd(){   
-    $bdd = new PDO("mysql:host=localhost;dbname=emagasin", "root","");//connexion db
-    return $bdd;
-}
+// function bdd(){   
+//     $bdd = new PDO("mysql:host=localhost;dbname=emagasin", "root","");//connexion db
+//     return $bdd;
+// }
 
-function alaune(){
-    $bdd = bdd();
-    $sql = $bdd-> prepare("SELECT * from fichetechnique 
-    inner join product
-    on fichetechnique.productId = product.productIdINT
-    inner join category
-    on product.categoryID = category.categoryId where onTop = 1 ");
+// function alaune(){
+//     $bdd = bdd();
+//     $sql = $bdd-> prepare("SELECT * from fichetechnique 
+//     inner join product
+//     on fichetechnique.productId = product.productIdINT
+//     inner join category
+//     on product.categoryID = category.categoryId where onTop = 1 ");
 
-    $sql->execute();
-    $resultat = $sql ->fetchAll();
-    return $resultat;
-}
+//     $sql->execute();
+//     $resultat = $sql ->fetchAll();
+//     return $resultat;
+// }
 
 
 try{
@@ -53,3 +53,4 @@ try{
             
     </div>
 </div>
+ 

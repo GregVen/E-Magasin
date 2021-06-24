@@ -1,11 +1,6 @@
 <?php 
 
-function bdd(){   
-    $bdd = new PDO("mysql:host=localhost;dbname=emagasin", "root","");//connexion db
-    return $bdd;
-}
-
-function recupListeCategories(){
+function recupListeCategories(){ 
 
     $bdd = bdd();
     $sql = "SELECT * FROM category";//requete
@@ -13,7 +8,7 @@ function recupListeCategories(){
     $stmt = $bdd->prepare($sql);//preparation de la requete
     $stmt->execute();//execution de la requete
 
-    // $result = $stmt->fetchAll(PDO::FETCH_ASSOC); asso
+    // $result = $stmt->fetchAll(PDO::FETCH_ASSOC); asso 
     $result = $stmt->fetchAll(PDO::FETCH_OBJ); //objet
     return $result;
 }
@@ -60,4 +55,22 @@ function viewUpDateCategorie($idcategorie){
     $stmt->execute([$idcategorie]);//execution de la requete
     $result = $stmt->fetch(PDO::FETCH_OBJ); //objet
     return $result;
+}
+
+function modifProduct($id){
+    $bdd = bdd();
+    $sql = "SELECT * FROM product
+    inner join fichetechnique
+    on product.productIdINT = fichetechnique.productId
+    inner join category
+    on product.categoryID = category.categoryId
+    where product.productIdINT = $id";//requete
+
+    $stmt = $bdd->prepare($sql);//preparation de la requete
+    $stmt->execute();//execution de la requete
+
+    // $result = $stmt->fetchAll(PDO::FETCH_ASSOC); asso
+    $result = $stmt->fetch(PDO::FETCH_OBJ); //objet
+    return $result;
+
 }

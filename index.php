@@ -2,12 +2,13 @@
  $style = "./src/css/style.css";
 session_start();
  include "./src/common/template.php";
-
- include "./src/common/promotion.php";
+ include "./src/fonctions/db_access.php";
+ include "./src/fonctions/dbProduitsFonctions.php";
+ include "./src/common/promotion.php"; 
  ?>
 <div class="container">
     <div class="row">
-    <h2> Nos Nouveautés ...</h2>
+    <h2> Nos Nouveautés ...</h2> 
         <div class="col-2">
             <?php
             include "./src/common/listCategorie.php";

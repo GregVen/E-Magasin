@@ -1,5 +1,7 @@
 <?php
-require "../common/dbProduitsFonctions.php";
+
+require "../fonctions/db_access.php";
+require "../fonctions/dbProduitsFonctions.php";
 
     try{
         
@@ -14,6 +16,10 @@ require "../common/dbProduitsFonctions.php";
 ?>
 
 <section>
+<div class="text-center mt-3">
+                <h2>Liste des produits</h2>
+            </div>
+    <div class="container mt-4">
     <div class="container mt-5">
         <table class="table table-striped">
             <tr>
@@ -32,8 +38,8 @@ require "../common/dbProduitsFonctions.php";
                     <td> <?php echo $value->description;?></td>
                     <td> <?php echo $value->prix;?></td>
                     <td> <?php echo $value->onTop;?></td>
-                    <td><a class="btn btn-primary" href="<?php echo "./adminContent/modifProduit.php?id=".$value->productIdINT ?>" title="Editer"> Modifier </a></td>
-                    <td><a class="btn btn-danger" href="<?php echo "./adminContent/deleteProduit.php?id=".$value->productIdINT ?>" title="Supprimer"> Supprimer</a></td>
+                    <td><a class="btn btn-primary" href="<?php echo "admin.php?page=modifProduit&&id=".$value->productIdINT ?>" title="Editer"> Modifier </a></td>
+                    <td><a class="btn btn-danger" href="<?php echo "../fonctions/deleteProduit.php?id=".$value->productIdINT ?>" title="Supprimer"> Supprimer</a></td>
                 </tr>
             <?php endforeach ?>
         </table>

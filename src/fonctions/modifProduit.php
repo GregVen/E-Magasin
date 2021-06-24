@@ -1,8 +1,11 @@
-
 <?php
+session_start();
+require "./db_access.php";
+require "./mesFonctions.php";
+require "./dbProduitsFonctions.php";
 
- require "../../../fonctions/mesFonctions.php";
- require "../../../common/dbProduitsFonctions.php";
+$idproduit=$_SESSION["productID"];
+
 
  if(isset($_POST["description"]) && isset($_POST["productName"]) && isset($_POST["prix"]) && isset($_POST["tailleMemoire"]) &&
     isset($_POST["processeur"]) && isset($_POST["processeurFab"]) && isset($_POST["resolutionEcran"]) && isset($_POST["tailleEcran"]) &&
@@ -13,7 +16,7 @@
         'productName'  => FILTER_SANITIZE_STRING,
         'prix'     => FILTER_SANITIZE_NUMBER_FLOAT,
         'tailleMemoire'  => FILTER_SANITIZE_NUMBER_FLOAT,
-        'processeur'     => FILTER_SANITIZE_STRING,
+        'processeur'     => FILTER_SANITIZE_STRING, 
         'processeurFab'  => FILTER_SANITIZE_STRING,
         'resolutionEcran'     => FILTER_SANITIZE_STRING,
         'tailleEcran'  => FILTER_SANITIZE_STRING,
@@ -48,10 +51,12 @@
     $OS=htmlspecialchars($_POST["OS"]);
 
     try {
-    
-    nouveauProduit($destination, $description, $categoryID, $onTop,$productName,$prix, $tailleMemoire, $processeur, $processeurFab, $resolutionEcran, $tailleEcran, $carteGraphique, $typeHdd, $tailleHdd, $poids, $OS);
-    header("location: ../../admin.php?page=listeProduits");
-    exit();
+
+
+        deleteProduits($idproduit);
+        nouveauProduit($destination, $description, $categoryID, $onTop,$productName,$prix, $tailleMemoire, $processeur, $processeurFab, $resolutionEcran, $tailleEcran, $carteGraphique, $typeHdd, $tailleHdd, $poids, $OS);
+        header("location: ../pages/admin.php?page=listeProduits");
+        exit();
     
 } catch (Exception $e) {
         die('Erreur: ' . $e->getMessage());

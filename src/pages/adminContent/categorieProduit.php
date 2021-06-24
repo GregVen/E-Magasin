@@ -1,5 +1,6 @@
 <?php
-require "../common/dbCategorieFonctions.php";
+require "../fonctions/db_access.php";
+require "../fonctions/dbCategorieFonctions.php";
 
     try{
         
@@ -14,7 +15,10 @@ require "../common/dbCategorieFonctions.php";
 ?>
 
 <section>
-    <div class="container mt-5">
+<div class="text-center mt-3">
+                <h2>Liste des catégories</h2>
+            </div>
+    <div class="container mt-4">
         <table id="tableEmployes" class="table table-striped">
             <tr>
                 <th>ID</th>
@@ -27,13 +31,13 @@ require "../common/dbCategorieFonctions.php";
                 <tr>         
                     <td> <?php echo $value->categoryId ;?> </td>
                     <td> <?php echo $value->typeProduct;?></td>
-                    <td><a class="btn btn-primary" href="<?php echo "./adminContent/modifCategorie/modifCategorie.php?id=".$value->categoryId ?>" title="Editer"> Modifier </a></td>
-                    <td><a class="btn btn-danger" href="<?php echo "./adminContent/modifCategorie/deleteCategorie.php?id=".$value->categoryId ?>" title="Supprimer"> Supprimer</a></td>
+                    <td><a class="btn btn-primary" href="<?php echo "admin.php?page=modifCategorie&&id=".$value->categoryId ?>" title="Editer"> Modifier </a></td>
+                    <td><a class="btn btn-danger" href="<?php echo "../fonctions/deleteCategorie.php?id=".$value->categoryId ?>" title="Supprimer"> Supprimer</a></td>
                 </tr>
             <?php endforeach ?>
         </table>
 
-        <form action="./adminContent/modifCategorie/ajoutCategorie.php" method="post">
+        <form action="../fonctions/ajoutCategorie.php" method="post">
             <div class="text-center mt-3">
                 <h2>Ajout d'une catégorie</h2>
             </div>

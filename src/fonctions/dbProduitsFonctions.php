@@ -1,9 +1,5 @@
 <?php
 
-function bdd(){   
-    $bdd = new PDO("mysql:host=localhost;dbname=emagasin", "root","");//connexion db 
-    return $bdd;
-}
 
 function nouveauProduit($imgUrl, $description, $categoriyID, $onTop, $productName, $prix, $tailleMemoire, $processeur, $processeurFab, $resolutionEcran, $tailleEcran, $carteGraphique, $typeHdd, $tailleHdd, $poids, $OS){
        
@@ -25,7 +21,7 @@ function nouveauProduit($imgUrl, $description, $categoriyID, $onTop, $productNam
 
 }
 
-function recupListeProduits(){
+function recupListeProduits(){   
 
     $bdd = bdd();
     $sql = "SELECT * FROM product
@@ -67,6 +63,19 @@ function modifProduct($id){
     $result = $stmt->fetch(PDO::FETCH_OBJ); //objet
     return $result;
 
+}
+
+function alaune(){
+    $bdd = bdd();
+    $sql = $bdd-> prepare("SELECT * from fichetechnique 
+    inner join product
+    on fichetechnique.productId = product.productIdINT
+    inner join category
+    on product.categoryID = category.categoryId where onTop = 1 ");
+
+    $sql->execute();
+    $resultat = $sql ->fetchAll();
+    return $resultat;
 }
 
 

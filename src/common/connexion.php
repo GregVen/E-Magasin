@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require "../../src/common/dbFonction.php";
+require "../../src/fonctions/dbFonction.php";
 
 $_SESSION["login"]=$login=$_POST["login"];
 $password=$_POST["password"];

@@ -1,27 +1,28 @@
 <?php 
-session_start();
-$style = "../../../../src/css/style.css";
+// $style = "../../../../src/css/style.css";
 
+require "../fonctions/db_access.php";
+require "../fonctions/dbCategorieFonctions.php";
 
-require "../../common/dbCategorieFonctions.php";
+// require "../../common/dbCategorieFonctions.php";
 
-function modifProduct($id){
-    $bdd = bdd();
-    $sql = "SELECT * FROM product
-    inner join fichetechnique
-    on product.productIdINT = fichetechnique.productId
-    inner join category
-    on product.categoryID = category.categoryId
-    where product.productIdINT = $id";//requete
+// function modifProduct($id){
+//     $bdd = bdd();
+//     $sql = "SELECT * FROM product
+//     inner join fichetechnique
+//     on product.productIdINT = fichetechnique.productId
+//     inner join category
+//     on product.categoryID = category.categoryId
+//     where product.productIdINT = $id";//requete
 
-    $stmt = $bdd->prepare($sql);//preparation de la requete
-    $stmt->execute();//execution de la requete
+//     $stmt = $bdd->prepare($sql);//preparation de la requete
+//     $stmt->execute();//execution de la requete
 
-    // $result = $stmt->fetchAll(PDO::FETCH_ASSOC); asso
-    $result = $stmt->fetch(PDO::FETCH_OBJ); //objet
-    return $result;
+//     // $result = $stmt->fetchAll(PDO::FETCH_ASSOC); asso
+//     $result = $stmt->fetch(PDO::FETCH_OBJ); //objet
+//     return $result;
 
-}
+// }
 
 $idproduit = $_GET["id"];
 $resultat=modifProduct($idproduit);
@@ -46,66 +47,9 @@ $_SESSION["productID"] = $productid = $resultat->productId;
 
 ?>
 
-<link rel="stylesheet" href="<?= $style ?>">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 
 
-<header>
-    <div class="header1">
-        <a href="../.."><img src="../../../../src/img/logo.png" alt="logo"></a>
-        <p>E-Shopping</p>
-    </div>
-    <div class="header2">
-        <div class="headerdiv">
-
-        <?php if (empty($_SESSION["connecté"])){ ?>
-            <a href="../register.php"><i class="fas fa-user-plus"></i> S'inscrire</a>
-            <a href="../login.php"><i class="fas fa-user-lock"></i> Se connecter</a>
-        <?php 
-            } 
-            if(!empty($_SESSION["connecté"]) && ($_SESSION["login"])=="admin") { 
-        ?>
-            <a href="../admin.php"><i class="fas fa-user"></i> Bonjour, <?php echo $_SESSION["login"];?></a>
-            <a href="../../common/logoff.php"><i class="fas fa-user-slash"></i> Se déconnecter</a>
-        <?php 
-            } 
-            if (!empty($_SESSION["connecté"]) && ($_SESSION["login"])!="admin"){
-        ?>
-            <a href="../donneesUser.php"><i class="fas fa-user"></i> Bonjour, <?php echo $_SESSION["login"];?></a>
-            <a href="../../common/logoff.php"><i class="fas fa-user-slash"></i> Se déconnecter</a>
-        <?php 
-            } 
-        ?>
-            <a href="#"><i class="fas fa-shopping-cart"></i>Panier</a>
-        </div>
-    </div>
-</header>
-
-<div style="background-color: #e3f2fd;">
-    <div class="navbar navbar-expand-lg navbar-light d-flex justify-content-around">
-        <div>
-            <h3>Menu Admin</h3>
-        </div>
-        <div>
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="../admin.php?page=listeProduits">Liste des produits </a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="../admin.php?page=ajouterProduit">Ajouter un Produit </a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="../admin.php?page=categorieProduit">Catégories de Produit</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
-
-
-<form action="./modifProduit/modifProduit.php" method="post" enctype="multipart/form-data">
+<form action="../fonctions/modifproduit.php" method="post" enctype="multipart/form-data">
     <div class=" container text-center mt-3">
         <div class="row">
             <div class="col">
@@ -227,8 +171,3 @@ $_SESSION["productID"] = $productid = $resultat->productId;
     
 </form>
 
-
-<?php
-include "../../common/footer.php"
-
-?>

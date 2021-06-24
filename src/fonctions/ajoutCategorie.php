@@ -3,7 +3,8 @@
 session_start();
 $categorie=htmlspecialchars($_POST["categorie"]);
 
-require "../../../common/dbCategorieFonctions.php";
+    require "../fonctions/db_access.php";
+    require "../fonctions/dbCategorieFonctions.php";
 
 try{
    
@@ -11,7 +12,7 @@ try{
 
     nouvelleCategory($categorie); 
 
-    header("location: ../../admin.php?page=categorieProduit");
+    header("location: ../pages/admin.php?page=categorieProduit");
     exit;
 
 } catch (PDOException $e){
