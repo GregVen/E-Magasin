@@ -100,11 +100,10 @@ justify-content: center;
 
  footer{
      margin-top: 2rem;
-     background-color: #2F4F4F;
+     background-color: #2F4F4F; 
      height: 5rem;
      color: lavender;
      font-weight: bolder ;
      text-align: center;
      padding-top: 2rem;
-     position: absolute;
  }

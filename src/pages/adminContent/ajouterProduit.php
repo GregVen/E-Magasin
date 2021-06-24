@@ -13,7 +13,7 @@ require "../common/dbCategorieFonctions.php";
             </div>
             <div class=" col input-group mb-3">
                 <label class="input-group-text" id="basic-addon3">Prix</label>
-                <input type="text"  class="form-control text-danger" aria-describedby="basic-addon3" name="prix" placeholder="PRIX" required>
+                <input type="number" step="0.01" min="0" class="form-control text-danger" aria-describedby="basic-addon3" name="prix" placeholder="PRIX" required>
                 <span class="input-group-text">€</span>
             </div>
         </div>
@@ -49,12 +49,12 @@ require "../common/dbCategorieFonctions.php";
                 <div  class="mb-3">
                     <h6>UPLOADER un fichier</h6>
                     <input type="hidden" name="MAX_FILE_SIZE" value="1000000000">
-                    <input class="form-control" type="file" id="formFile" name="fichier">
+                    <input class="form-control" type="file" id="formFile" name="fichier" required>
                 </div>
 
                 <div class="input-group mb-3">
                     <span class="input-group-text">Description</span>
-                    <textarea class="form-control" aria-label="With textarea" placeholder="Description" rows="5" name="description"></textarea>
+                    <textarea class="form-control" aria-label="With textarea" placeholder="Description" rows="5" name="description" required></textarea>
                 </div>
 
             </div>
@@ -65,54 +65,51 @@ require "../common/dbCategorieFonctions.php";
                 <div class="row justify-content-evenly">  
                     <div class=" col input-group mb-3">
                         <label class="input-group-text" id="basic-addon3">Taille Memoire</label>
-                        <input type="text"  class="form-control" aria-describedby="basic-addon3" name="tailleMemoire" placeholder="Taille Mémoire" required>
-                        <span class="input-group-text">Go</span>
+                        <input type="text"  class="form-control" aria-describedby="basic-addon3" name="tailleMemoire" placeholder="En Go">
                     </div>
                     <div class="col input-group mb-3">
                         <label class="input-group-text" id="basic-addon3"> Processeur</label>
-                        <input type="text"  class="form-control" aria-describedby="basic-addon3" name="processeur" placeholder="Processeur" required>
+                        <input type="text"  class="form-control" aria-describedby="basic-addon3" name="processeur" placeholder="Processeur">
                     </div>
                     
                 </div>
                 <div class="input-group mb-3">
                     <label class="input-group-text" id="basic-addon3">Fabriquant du Processeur</label>
-                    <input type="text"  class="form-control" aria-describedby="basic-addon3" name="processeurFab" placeholder="Fabriquant du Processeur" required>
+                    <input type="text"  class="form-control" aria-describedby="basic-addon3" name="processeurFab" placeholder="Fabriquant du Processeur">
                 </div>
                 <div class="input-group mb-3">
                     <label class="input-group-text" id="basic-addon3">Carte Graphique</label>
-                    <input type="text"  class="form-control" aria-describedby="basic-addon3" name="carteGraphique" placeholder="Carte Graphique" required>
+                    <input type="text"  class="form-control" aria-describedby="basic-addon3" name="carteGraphique" placeholder="Carte Graphique">
                 </div>
 
                 <div class="row justify-content-evenly">
                     <div class=" col input-group mb-3">
                         <label class="input-group-text" id="basic-addon3">Taille d'Ecran</label>
-                        <input type="text"  class="form-control" aria-describedby="basic-addon3" name="tailleEcran" placeholder="Taille d'Ecran" required>
+                        <input type="text"  class="form-control" aria-describedby="basic-addon3" name="tailleEcran" placeholder="Taille d'Ecran">
                     </div>
                     <div class=" col input-group mb-3">
                         <label class="input-group-text" id="basic-addon3">Résolution</label>
-                        <input type="text"  class="form-control" aria-describedby="basic-addon3" name="resolutionEcran" placeholder="Résolution" required>
+                        <input type="text"  class="form-control" aria-describedby="basic-addon3" name="resolutionEcran" placeholder="Résolution">
                     </div>
                 </div>
                 <div class="row justify-content-evenly" >  
                     <div class=" col input-group mb-3">
                         <label class="input-group-text" id="basic-addon3">Type de disque</label>
-                        <input type="text"  class="form-control" aria-describedby="basic-addon3" name="typeHDD" placeholder="Type de disque" required>
+                        <input type="text"  class="form-control" aria-describedby="basic-addon3" name="typeHDD" placeholder="Type de disque">
                     </div>
                     <div class="col input-group mb-3">
                         <label class="input-group-text" id="basic-addon3">Taille du Disque</label>
-                        <input type="text"  class="form-control" aria-describedby="basic-addon3" name="tailleHDD" placeholder="Taille du Disque" required>
-                        <span class="input-group-text">Go</span>
+                        <input type="text"  class="form-control" aria-describedby="basic-addon3" name="tailleHDD" placeholder="En Go">
                     </div>
                 </div>
                 <div class="row justify-content-evenly">
                     <div class="col input-group mb-3">
                         <label class="input-group-text" id="basic-addon3">Poids</label>
-                        <input type="text"  class="form-control" aria-describedby="basic-addon3" name="poids" placeholder="Poids" required>
-                        <span class="input-group-text">Kg</span>
+                        <input type="text"  class="form-control" aria-describedby="basic-addon3" name="poids" placeholder="En Kg">
                     </div>
                     <div class="col input-group mb-3">
                         <label class="input-group-text" id="basic-addon3">OS</label>
-                        <input type="text"  class="form-control" aria-describedby="basic-addon3" name="OS" placeholder="OS" required>
+                        <input type="text"  class="form-control" aria-describedby="basic-addon3" name="OS" placeholder="OS">
                     </div>
                 </div>
             </div>

@@ -21,7 +21,7 @@ require "../common/dbProduitsFonctions.php";
                 <th>Description</th>
                 <th>Prix</th>
                 <th>On Top</th>
-                <th></th>
+                <th></th>     
                 <th></th>
 
             </tr>
@@ -32,8 +32,8 @@ require "../common/dbProduitsFonctions.php";
                     <td> <?php echo $value->description;?></td>
                     <td> <?php echo $value->prix;?></td>
                     <td> <?php echo $value->onTop;?></td>
-                    <td><a class="btn btn-primary" href="<?php echo "#".$value->productIdINT ?>" title="Editer"> Modifier </a></td>
-                    <td><a class="btn btn-danger" href="<?php echo "#".$value->productIdINT ?>" title="Supprimer"> Supprimer</a></td>
+                    <td><a class="btn btn-primary" href="<?php echo "./adminContent/modifProduit.php?id=".$value->productIdINT ?>" title="Editer"> Modifier </a></td>
+                    <td><a class="btn btn-danger" href="<?php echo "./adminContent/deleteProduit.php?id=".$value->productIdINT ?>" title="Supprimer"> Supprimer</a></td>
                 </tr>
             <?php endforeach ?>
         </table>

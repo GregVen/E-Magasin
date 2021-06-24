@@ -40,3 +40,33 @@ function recupListeProduits(){
     return $result;
 } 
 
+function deleteProduits($idcategorie){
+    $bdd = bdd();
+    $sql = "DELETE from product where productIdINT = ?";//requete
+
+    $stmt = $bdd->prepare($sql);//preparation de la requete
+    $stmt->execute([$idcategorie]);//execution de la requete
+
+    $sql = "DELETE from fichetechnique where productId = ?";//requete
+
+    $stmt = $bdd->prepare($sql);//preparation de la requete
+    $stmt->execute([$idcategorie]);//execution de la requete
+}
+
+function modifProduct($id){
+    $bdd = bdd();
+    $sql = "SELECT * FROM product
+    inner join fichetechnique
+    on product.productIdINT = fichetechnique.productId
+    where product.productIdINT = $id";//requete
+
+    $stmt = $bdd->prepare($sql);//preparation de la requete
+    $stmt->execute();//execution de la requete
+
+    // $result = $stmt->fetchAll(PDO::FETCH_ASSOC); asso
+    $result = $stmt->fetch(PDO::FETCH_OBJ); //objet
+    return $result;
+
+}
+
+

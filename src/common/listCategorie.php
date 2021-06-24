@@ -1,8 +1,25 @@
+<?php
+
+function recupListeCategories(){
+
+    $bdd = bdd();
+    $sql = "SELECT * FROM category";//requete
+
+    $stmt = $bdd->prepare($sql);//preparation de la requete
+    $stmt->execute();//execution de la requete
+
+    // $result = $stmt->fetchAll(PDO::FETCH_ASSOC); asso
+    $result = $stmt->fetchAll(PDO::FETCH_OBJ); //objet
+    return $result;
+}
+
+?>
+
+
 <ul class="list-group list-group-flush listeCategorie">
-    <a href="#"><li class="list-group-item">An item</li></a>
-    <a href="#"><li class="list-group-item">A second item</li></a>
-    <a href="#"><li class="list-group-item">A third item</li></a>
-    <a href="#"><li class="list-group-item">A fourth item</li></a>
-    <a href="#"><li class="list-group-item">And a fifth one</li></a>
+        <a href=""><li class="list-group-item list-group-item-danger">Tous les produits</li></a>
+    <?php foreach(recupListeCategories() as $value): ?>
+        <a href="#"><li class="list-group-item"><?php echo $value->typeProduct ?></li></a>
+    <?php endforeach ?>
 </ul>
 

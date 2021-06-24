@@ -54,6 +54,7 @@ function sendImg($img){
                 // variable qui contiendra la chaîne de caractère du repertoire dans lequel l'upload
                 // sera enregistré, avec modif du nom du fichier pour éviter un doublon
                 $destination = "../../../img/produits/" . time() . "-". basename($img["name"]);
+                $destinationdb = str_replace("../../..", "./src", $destination);
                 move_uploaded_file($img["tmp_name"], $destination);
                 echo "<div class=\"imageloaded\" ><p class=\"textreussi\">Envoi du fichier " . $img["name"] . " réussi !!!</p>";
                 echo "<img class=\"imagefull\" src=\"uploads/" . time() . "-". basename($img["name"])."\"></div>";
@@ -65,6 +66,6 @@ function sendImg($img){
         echo "<script>alert(\"Le fichier est supérieur à 10Mo, recommencez\")</script>";
         }
     }
-    return $destination;
+    return $destinationdb;
 
 }
